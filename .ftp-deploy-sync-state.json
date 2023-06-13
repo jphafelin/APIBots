@@ -1,0 +1,25 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1686692101765,
+    "data": [
+        {
+            "type": "file",
+            "name": "index.js",
+            "size": 5813,
+            "hash": "7267727e160cf4339f6d2d43dafbfc38b9bc77a640a1dcfa9288ae322e25a0d8"
+        },
+        {
+            "type": "file",
+            "name": "package-lock.json",
+            "size": 22290,
+            "hash": "e2e0bbb26a298d11a2286dc58d0e4a087043480fd42e2af6aed0f2fee3dd844c"
+        },
+        {
+            "type": "file",
+            "name": "package.json",
+            "size": 255,
+            "hash": "cf8119f7edd25dba8c3df0c1e9827bbdd553cb70a9442d87e1180d12a4a867c3"
+        }
+    ]
+}
