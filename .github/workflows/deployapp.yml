@@ -22,4 +22,4 @@ jobs:
           username: jphafelin
           password: Newoffice.01
           local-dir: ./
-          server-dir: ./dist/Backend
+          server-dir: ./dist/Backend/
