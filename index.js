@@ -175,7 +175,7 @@ const usuarios = [
         contrasena: "NEWOFFICE3",
         nombre: "USUARIO",
         apellido: "TRES",
-    },
+    }
 
 
 
