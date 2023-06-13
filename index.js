@@ -198,5 +198,5 @@ app.get('/api/usuarios/:id', (req, res) => {
 
 
 
-const port = process.env.port || 80;
+const port = process.env.port || 3002;
 app.listen(port, () => console.log(`Escuchando en puerto ${port}...`));
