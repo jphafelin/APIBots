@@ -169,7 +169,13 @@ const usuarios = [
         nombre: "USUARIO",
         apellido: "DOS",
     },
-
+    {
+        id: 3,
+        usuario: "USER3",
+        contrasena: "NEWOFFICE3",
+        nombre: "USUARIO",
+        apellido: "TRES",
+    }
 
 
 
