@@ -182,6 +182,13 @@ const usuarios = [
         contrasena: "NEWOFFICE4",
         nombre: "USUARIO",
         apellido: "CUATRO",
+    },
+    {
+        id: 5,
+        usuario: "USER5",
+        contrasena: "nof",
+        nombre: "USUARIO",
+        apellido: "CINCO",
     }
 
 
