@@ -215,7 +215,97 @@ app.get('/api/usuarios/:id', (req, res) => {
 
 
 
+// BOTS
 
+
+const bots = [
+    {
+        id: 1,
+        codBot: "RAZ SOC 1",
+        descripcionBot: "11.111.111",
+        estado: "VIGENTE",
+        tipoEjecucion: "NOM FAN 1",
+        nombreEmpresa: "GIRO 1",
+        observacion: "DIR FACT 1",
+        rutaCarpetasBot: "1",
+        inicio: "COM FAC 1",
+        termino: "NOM CON FAC 1",
+        usuarioCreador: "1",
+        fechaCreacion: "01/01/2023 01:01",
+        usuarioUltimaModificacion: "2",
+        fechaUltimaModificacion: "01/01/2023 01:11"
+    }
+
+
+];
+
+
+
+app.get('/api/bots', (req, res) => {
+    res.send(bots);
+});
+
+
+app.get('/api/bots/:id', (req, res) => {
+    const bot = bots.find(c => c.id === parseInt(req.params.id));
+    if (!bot) return res.status(404).send('Bot no encontrada');
+    else res.send(bot);
+
+});
+
+
+app.post('/api/bots', (req, res) => {
+    const bot = {
+        id: bots.length + 1,
+        codBot: req.body.codBot,
+        descripcionBot: req.body.descripcionBot,
+        estado: req.body.estado,
+        tipoEjecucion: req.body.tipoEjecucion,
+        nombreEmpresa: req.body.nombreEmpresa,
+        observacion: req.body.observacion,
+        rutaCarpetasBot: req.body.rutaCarpetasBot,
+        inicio: req.body.inicio,
+        termino: req.body.termino,
+        usuarioCreador: req.body.usuarioCreador,
+        fechaCreacion: req.body.fechaCreacion,
+        usuarioUltimaModificacion: "",
+        fechaUltimaModificacion: ""
+    };
+
+    bots.push(bot);
+    res.send(bot);
+});
+
+
+app.put('/api/bots/:id', (req, res) => {
+    const bot = bots.find(c => c.id === parseInt(req.params.id));
+    if (!bot) return res.status(404).send('Bot no encontrada');
+
+    //const index = empresas.indexOf(empresa);
+
+    bot.codBot = req.body.codBot;
+    bot.descripcionBot = req.body.descripcionBot;
+    bot.estado = req.body.estado;
+
+    bot.tipoEjecucion = req.body.tipoEjecucion;
+    bot.nombreEmpresa = req.body.nombreEmpresa;
+    bot.observacion = req.body.observacion;
+    bot.rutaCarpetasBot = req.body.rutaCarpetasBot;
+    bot.inicio = req.body.inicio;
+    bot.termino = req.body.termino;
+   
+
+
+    bot.usuarioUltimaModificacion = req.body.usuarioUltimaModificacion;
+
+    bot.fechaUltimaModificacion = req.body.fechaUltimaModificacion;
+
+
+
+
+    res.send(bot);
+
+});
 
 
 
