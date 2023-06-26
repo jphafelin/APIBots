@@ -162,7 +162,7 @@ const usuarios = [
     {
         id: 1,
         usuario: "USER",
-        clave: "nof",
+        contrasena: "nof",
         nombre: "NOMBRE APELLIDO",
         telefono: "+56123456789",
         email: "USER@MAIL.COM",
@@ -200,7 +200,7 @@ app.post('/api/usuarios', (req, res) => {
     const usuario = {
         id: usuarios.length + 1,
         usuario: req.body.usuario,
-        clave: req.body.clave,
+        contrasena: req.body.contrasena,
         nombre: req.body.nombre,
         telefono: req.body.telefono,
         email: req.body.email,
@@ -226,7 +226,7 @@ app.put('/api/usuarios/:id', (req, res) => {
     //const index = empresas.indexOf(empresa);
 
     usuario.usuario = req.body.usuario;
-    usuario.clave = req.body.clave;
+    usuario.contrasena = req.body.contrasena;
     usuario.nombre = req.body.nombre;
     usuario.telefono = req.body.telefono;
     usuario.email = req.body.email;
