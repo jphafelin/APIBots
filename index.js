@@ -161,43 +161,29 @@ app.put('/api/empresas/:id', (req, res) => {
 const usuarios = [
     {
         id: 1,
-        usuario: "USER1",
-        contrasena: "NEWOFFICE1",
-        nombre: "USUARIO",
-        apellido: "UNO",
-    },
-    {
-        id: 2,
-        usuario: "USER2",
-        contrasena: "NEWOFFICE2",
-        nombre: "USUARIO",
-        apellido: "DOS",
-    },
-    {
-        id: 3,
-        usuario: "USER3",
-        contrasena: "NEWOFFICE3",
-        nombre: "USUARIO",
-        apellido: "TRES",
-    },
-    {
-        id: 4,
-        usuario: "USER4",
-        contrasena: "NEWOFFICE4",
-        nombre: "USUARIO",
-        apellido: "CUATRO",
-    },
-    {
-        id: 5,
-        usuario: "USER5",
-        contrasena: "nof",
-        nombre: "USUARIO",
-        apellido: "CINCO",
+        usuario: "USER",
+        clave: "nof",
+        nombre: "NOMBRE APELLIDO",
+        telefono: "+56123456789",
+        email: "USER@MAIL.COM",
+        cargo: "CARGO 1",
+        obs: "OBSERVACION 1",
+        estado: "VIGENTE",
+        botsUsuario: [1,2],
+        usuarioCreador: "1",
+        fechaCreacion: "01/01/2023 01:01",
+        usuarioUltimaModificacion: "2",
+        fechaUltimaModificacion: "01/01/2023 01:11"
+        
     }
+    
+    
 
 
 
 ];
+
+
 
 app.get('/api/usuarios', (req, res) => {
     res.send(usuarios);
@@ -207,6 +193,52 @@ app.get('/api/usuarios/:id', (req, res) => {
     const usuario = usuarios.find(c => c.id === parseInt(req.params.id));
     if (!usuario) return res.status(404).send('Usuario no encontrado');
     else res.send(usuario);
+
+});
+
+app.post('/api/usuarios', (req, res) => {
+    const usuario = {
+        id: usuarios.length + 1,
+        usuario: req.body.usuario,
+        clave: req.body.clave,
+        nombre: req.body.nombre,
+        telefono: req.body.telefono,
+        email: req.body.email,
+        cargo: req.body.cargo,
+        obs: req.body.obs,
+        estado: req.body.estado,
+        botsUsuario: req.body.botsUsuario,
+        usuarioCreador: req.body.usuarioCreador,
+        fechaCreacion: req.body.fechaCreacion,
+        usuarioUltimaModificacion: "",
+        fechaUltimaModificacion: ""
+    };
+
+    usuarios.push(usuario);
+    res.send(usuario);
+});
+
+
+app.put('/api/usuarios/:id', (req, res) => {
+    const usuario = usuarios.find(c => c.id === parseInt(req.params.id));
+    if (!usuario) return res.status(404).send('Usuario no encontrado');
+
+    //const index = empresas.indexOf(empresa);
+
+    usuario.usuario = req.body.usuario;
+    usuario.clave = req.body.clave;
+    usuario.nombre = req.body.nombre;
+    usuario.telefono = req.body.telefono;
+    usuario.email = req.body.email;
+    usuario.cargo = req.body.cargo;
+    usuario.obs = req.body.obs;
+    usuario.estado = req.body.estado;
+    usuario.botsUsuario = req.body.botsUsuario;
+    usuario.usuarioUltimaModificacion = req.body.usuarioUltimaModificacion;
+    usuario.fechaUltimaModificacion = req.body.fechaUltimaModificacion;
+
+
+    res.send(usuario);
 
 });
 
@@ -285,7 +317,6 @@ app.put('/api/bots/:id', (req, res) => {
     bot.codBot = req.body.codBot;
     bot.descripcionBot = req.body.descripcionBot;
     bot.estado = req.body.estado;
-
     bot.tipoEjecucion = req.body.tipoEjecucion;
     bot.nombreEmpresa = req.body.nombreEmpresa;
     bot.observacion = req.body.observacion;
