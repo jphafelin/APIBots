@@ -1,20 +1,4 @@
 const express = require('express');
-const multer = require('multer');
-
-// Configuración de multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // Define la carpeta donde se guardarán los archivos
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    // Genera un nombre de archivo único
-    cb(null, Date.now() + '-' + file.originalname);
-  }
-});
-
-const upload = multer({ storage: storage });
-
 const app = express();
 const cors = require('cors');
 
@@ -352,50 +336,6 @@ app.put('/api/bots/:id', (req, res) => {
     res.send(bot);
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-app.post('/archivo', upload.single('archivo'), (req, res) => {
-    // La función 'upload.single' especifica que esperamos un solo archivo con el campo 'archivo'
-  
-    if (!req.file) {
-      // Si no se proporcionó ningún archivo, devuelve un error
-      return res.status(400).json({ error: 'No se proporcionó ningún archivo' });
-    }
-  
-    // Aquí puedes realizar cualquier procesamiento adicional con el archivo, como guardarlo en la base de datos o realizar alguna operación en él.
-  
-    // Devuelve una respuesta exitosa
-    res.json({ mensaje: 'Archivo cargado exitosamente' });
-  });
-
-  app.get('/archivos', (req, res) => {
-    const folderPath = path.join(__dirname, 'uploads');
-  
-    fs.readdir(folderPath, (err, files) => {
-      if (err) {
-        return res.status(500).json({ error: 'Error al leer los archivos' });
-      }
-  
-      const archivos = files.map(file => {
-        return {
-          nombre: file,
-          url: `http://186.67.10.116:3002/api/archivos/${file}`
-        };
-      });
-  
-      res.json({ archivos });
-    });
-  });
 
 
 
