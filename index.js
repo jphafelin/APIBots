@@ -1,4 +1,3 @@
-//
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -170,7 +169,7 @@ const usuarios = [
         cargo: "CARGO 1",
         obs: "OBSERVACION 1",
         estado: "VIGENTE",
-        botsUsuario: [1,2],
+        botsUsuario: [1,3],
         usuarioCreador: "1",
         fechaCreacion: "01/01/2023 01:01",
         usuarioUltimaModificacion: "2",
